@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-
 import { Ingredient } from '../shared/ingredient.model';
 
 @Component({
