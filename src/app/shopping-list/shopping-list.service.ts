@@ -12,7 +12,11 @@ export class ShoppingListService {
     new Ingredient('Tomato', 10),
   ];
 
-  getIngredients() {
+  getIngredient(index: number): Ingredient {
+    return this.ingredients.slice()[index];
+  }
+
+  getIngredients(): Ingredient[] {
     return this.ingredients.slice();
   }
 
