@@ -18,7 +18,11 @@ export class RecipeEditComponent implements OnInit {
   ) {}
 
   ngOnInit() {
-    this.subscribeToRouteChange;
+    this.subscribeToRouteChange();
+  }
+
+  onSubmit() {
+    console.log(this.recipeForm);
   }
 
   private subscribeToRouteChange() {
