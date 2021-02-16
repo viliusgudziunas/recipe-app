@@ -9,6 +9,7 @@ import { RecipeService } from '../recipe.service';
 })
 export class RecipeDetailComponent implements OnInit {
   recipe: Recipe;
+  id: number;
 
   constructor(
     private recipeService: RecipeService,
@@ -23,10 +24,14 @@ export class RecipeDetailComponent implements OnInit {
     this.recipeService.addIngredientsToShoppingList(this.recipe.ingredients);
   }
 
+  onDeleteRecipe() {
+    this.recipeService.deleteRecipe(this.id);
+  }
+
   private subscribeToRouteChange() {
-    this.route.params.subscribe(
-      (params: Params) =>
-        (this.recipe = this.recipeService.getRecipe(+params.id))
-    );
+    this.route.params.subscribe((params: Params) => {
+      this.id = +params.id;
+      this.recipe = this.recipeService.getRecipe(this.id);
+    });
   }
 }
